@@ -8,10 +8,16 @@ var array=[""];
 var newIndex=0;
 var question=" ";
 var questions=[
-["Name actor that played the antagonist in the Fifth Element?", "Gary Oldman", "Sir Isac Newton","Ye Olde Ship","A"],
-["Soccer that headbutted Italian player in the final of the 2006 World Cup", "Gabriel Batistuta", "Andrea Pirlo","Zinedine Zidane","C"],
-["Name actor that played the antagonist in the Fifth Element?", "Gary Oldman", "Sir Isac Newton","Ye Olde Ship","A"],
-["Name actor that played the antagonist in the Fifth Element?", "Gary Oldman", "Sir Isac Newton","Ye Olde Ship","A" ]
+["Which futbol player is not impressed, ever?", "Andrea Pirlo", "Harry Kane","El 'Pibe' Valderrama"],
+["Soccer that headbutted Italian player in the final of the 2006 World Cup", "Gabriel Batistuta", "Lionel Messi","Zinedine Zidane"],
+["Name the all time top scorer in Wolrd Cups?", "Miroslav Klose", "Il Fenomeno Ronaldo","Cristiano Ronaldo"],
+["Team club with most European trophies?", "AC Milan", "Real Madrid","Manchester United"],
+["Which country hosted the last World Cup?", "Costa Rica", "Peru", "Brazil"],
+["Name country with the most World Cup titles?", "Brazil", "Germany", "Italy"],
+["What team does Lionel Messi play for?", "Paris-Saint Germain", "Barcelona", "Real Madrid"],
+["Famous futbol star who played with LA Galaxy, Manchester United and Real Madrid?", "Robbie Keane", "Giovanni dos Santos", "David Beckham"],
+["Name the most expensive futbol player of all time?", "Luis Figo", "Cristiano Ronaldo", "Paul Pogba"],
+["English team to win the title in the last two minutes of the game on the last fixture?", "Tottenham Spurs", "Arsenal", "Manchester City"]//10 items
 ];
 
 $(document).ready(function(){
@@ -58,10 +64,14 @@ function triviaQuestions(){
 	question = questions[newIndex][0];
 		for(var i = 1; i < 4; i++){
 			choices= questions[newIndex][i];
-			i++;
+			var inputTags = $("<input></input>");
+			inputTags.attr("type","radio");
+			inputTags.attr("name","choices").attr("values", "A");
+			inputTags.html(choices);
+
 		}
 
-	$("#quizQuestions").append("<h3>" + question + "</h3>");
+	$("#quizQuestions").append("<h3>" + question + "</h3>").append(inputTags);
 
 	// for(newIndex=0;newIndex<4;newIndex++){
 	// question = questions[newIndex][0];
@@ -83,8 +93,6 @@ function triviaQuestions(){
 		// 	choices++;
 		// 	console.log(choices);
 		// 	}	
-
-		console.log(question);
 
 	}
 
