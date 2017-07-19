@@ -1,6 +1,9 @@
 
-*{
-	background-image: url("../images/tackle.jpeg")
+body{
+	background-image: url("../images/tackle.jpeg");
+
+    background-attachment: fixed;
+    background-position: center;
 }
 .col-centered{
     		float: none;
@@ -10,10 +13,21 @@
 	color: white;
 }
 
-
+#submit{
+	color:white;
+	background-visibility:;
+}
 
 #timer{
 	font-size: 45px;
 	color: blue;
 	text-align: center;
 }
+#quizQuestions{
+	text-align: center;
+	font-family: 'Bree Serif', serif;
+}
+ 
+ #headerThree{
+ 	font-family: 'Passion One', cursive;
+ }

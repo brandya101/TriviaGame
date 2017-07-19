@@ -9,9 +9,9 @@ var newIndex=0;
 var question=" ";
 var choiceA, choiceB, choiceC;
 var questions=[
-["Which futbol player is not impressed, ever?", "Andrea Pirlo", "Harry Kane","El 'Pibe' Valderrama"],
-["Soccer that headbutted Italian player in the final of the 2006 World Cup", "Gabriel Batistuta", "Lionel Messi","Zinedine Zidane"],
-["Name the all time top scorer in Wolrd Cups?", "Miroslav Klose", "Il Fenomeno Ronaldo","Cristiano Ronaldo"],
+["Which futbol player is never impressed, ever?", "Andrea Pirlo", "Harry Kane","El 'Pibe' Valderrama"],
+["French player that headbutted Italian player in the final of the 2006 World Cup", "Gabriel Batistuta", "Lionel Messi","Zinedine Zidane"],
+["Name the all time top scorer of World Cups?", "Miroslav Klose", "Il Fenomeno Ronaldo","Cristiano Ronaldo"],
 ["Team club with most European trophies?", "AC Milan", "Real Madrid","Manchester United"],
 ["Which country hosted the last World Cup?", "Costa Rica", "Peru", "Brazil"],
 ["Name country with the most World Cup titles?", "Brazil", "Germany", "Italy"],
@@ -20,6 +20,13 @@ var questions=[
 ["Name the most expensive futbol player of all time?", "Luis Figo", "Cristiano Ronaldo", "Paul Pogba"],
 ["English team to win the title in the last two minutes of the game on the last fixture?", "Tottenham Spurs", "Arsenal", "Manchester City"]//10 items
 ];
+
+
+
+
+//Need to go back and make the questions array into an object to get a quicker reference to questions and answers. 
+
+
 
 $(document).ready(function(){
 
@@ -57,6 +64,7 @@ function reset(){
 
 
 //Create questions needed to answer
+//I did not create a seperate form for each question + answer. 
 function triviaQuestions(){
 	//Create form using jquery. Let this appear and hide the other div that show the start and Let's Start.
 	for(newIndex = 0; newIndex < questions.length; newIndex++){
@@ -65,44 +73,12 @@ function triviaQuestions(){
 	choiceB=questions[newIndex][2];
 	choiceC=questions[newIndex][3];
 
-	$("#quizQuestions").append("<h3>" + question + "</h3>" + "<br>").css("color","white");
-	$("#quizQuestions").append("<input type='radio' name='choices' value='A' checked='checked'> "+ choiceA + "<br>");
-	$("#quizQuestions").append("<input type='radio' name='choices' value='B'>"+ choiceB +" <br>");
-	$("#quizQuestions").append("<input type='radio' name='choices' value='C'>"+ choiceC +" <br>");
-
-
 	
-	// for(var i=1;i < 4; i++ ){
-
-	// 		console.log(newIndex);
-	// 	 	var choices = questions[newIndex][i];
-
-	// 	 	$("#quizChoices").append("<input type='radio' name='choices' value='A'>" + choices +"<br>");
-
-	// 	 	// going through each index printing out all three options and going to next one instead of stopping
-		 	
-	// 		}	
-
-	// for(newIndex=0;newIndex<4;newIndex++){
-	// question = questions[newIndex][0];
-	// var i = 0;
-	// for(i = 0; i < 4; i++){
-	// var choices = questions[newIndex][i]
-
-	// $("#quizQuestions").append("<h3>" + question + "</h3>");
-
-	// $("#quizChoices").append("<input type='radio' name='choices' value='A'>" + choices +"<br>");
-
-	// }	
-		// for(var i=1;i < 4; i++ ){
-
-		// 	var choices = questions[newIndex][i];
-
-		// 	$("#quizChoices").append("<input type='radio' name='choices' value='A'>" + choices +"<br>");
-			
-		// 	choices++;
-		// 	console.log(choices);
-		// 	}	
+	
+	$("#quizQuestions").append("<h3 id='headerThree'>" + question + "</h3>" + "<br>").css("color","white");
+	$("#quizQuestions").append("<input type='radio' name='choices' value=" + choiceA + " checked='checked'> "+ choiceA + "<br>");
+	$("#quizQuestions").append("<input type='radio' name='choices' value=" + choiceB + ">"+ choiceB +" <br>");
+	$("#quizQuestions").append("<input type='radio' name='choices' value=" + choiceC + ">"+ choiceC +" <br>");
 
 	}
 
@@ -118,8 +94,10 @@ function triviaQuestions(){
 
 //questions needed to be answered and corrected.
 function correctAnswers(){
-	
-
+	//This function was suppose to get the value of the check marked position and return it
+	// I was going to make it go through an array and check with the right answer. I realized I would need to instead of choiceA variable in value i would need a letter and add the right answer to the questions array. 
+	//
+	alert("Working submit button");
 	newIndex++;
 }
 
