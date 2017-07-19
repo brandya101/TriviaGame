@@ -7,6 +7,7 @@ var timer=25;
 var array=[""];
 var newIndex=0;
 var question=" ";
+var choiceA, choiceB, choiceC;
 var questions=[
 ["Which futbol player is not impressed, ever?", "Andrea Pirlo", "Harry Kane","El 'Pibe' Valderrama"],
 ["Soccer that headbutted Italian player in the final of the 2006 World Cup", "Gabriel Batistuta", "Lionel Messi","Zinedine Zidane"],
@@ -55,23 +56,32 @@ function reset(){
 
 
 
-
-
 //Create questions needed to answer
 function triviaQuestions(){
 	//Create form using jquery. Let this appear and hide the other div that show the start and Let's Start.
 	for(newIndex = 0; newIndex < questions.length; newIndex++){
 	question = questions[newIndex][0];
-		for(var i = 1; i < 4; i++){
-			choices= questions[newIndex][i];
-			var inputTags = $("<input></input>");
-			inputTags.attr("type","radio");
-			inputTags.attr("name","choices").attr("values", "A");
-			inputTags.html(choices);
+	choiceA=questions[newIndex][1];
+	choiceB=questions[newIndex][2];
+	choiceC=questions[newIndex][3];
 
-		}
+	$("#quizQuestions").append("<h3>" + question + "</h3>" + "<br>").css("color","white");
+	$("#quizQuestions").append("<input type='radio' name='choices' value='A' checked='checked'> "+ choiceA + "<br>");
+	$("#quizQuestions").append("<input type='radio' name='choices' value='B'>"+ choiceB +" <br>");
+	$("#quizQuestions").append("<input type='radio' name='choices' value='C'>"+ choiceC +" <br>");
 
-	$("#quizQuestions").append("<h3>" + question + "</h3>").append(inputTags);
+
+	
+	// for(var i=1;i < 4; i++ ){
+
+	// 		console.log(newIndex);
+	// 	 	var choices = questions[newIndex][i];
+
+	// 	 	$("#quizChoices").append("<input type='radio' name='choices' value='A'>" + choices +"<br>");
+
+	// 	 	// going through each index printing out all three options and going to next one instead of stopping
+		 	
+	// 		}	
 
 	// for(newIndex=0;newIndex<4;newIndex++){
 	// question = questions[newIndex][0];
@@ -96,7 +106,7 @@ function triviaQuestions(){
 
 	}
 
-	$("#quizChoices").append("<button id='submit'>Submit</button>")	
+	$("#quizQuestions").append("<button id='submit'>Submit</button>")	
 		$("#submit").on("click", function(){
 
 			correctAnswers();
@@ -121,9 +131,10 @@ function correctAnswers(){
 function runGame(){
 	$(".container").css("display","none");
 
-	timer--;
 
-	$("#timer").html(timer);
+	timer--;
+	
+	$("#timer").text("Time Left Over: "+timer).css("display","block");
 
 	console.log(timer);
 	
@@ -131,7 +142,6 @@ function runGame(){
 
 		clearInterval(intervalId);
 		alert("Times Up")
-		reset();
 	}
 }
 
@@ -142,8 +152,6 @@ $(".start").on("click",function(){
 
 	intervalId=setInterval(runGame,1000);
 	triviaQuestions();
-	
-
 	
 
 });

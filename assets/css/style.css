@@ -1,8 +1,19 @@
+
+*{
+	background-image: url("../images/tackle.jpeg")
+}
 .col-centered{
     		float: none;
     		margin: 0 auto;
 		}
+#header{
+	color: white;
+}
 
-/*.questions{
-	display: none;
-}*/
+
+
+#timer{
+	font-size: 45px;
+	color: blue;
+	text-align: center;
+}
